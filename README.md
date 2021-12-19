@@ -1,1 +1,3 @@
-# Library-
+# Library
+
+Project: Library for TheOdinProject
