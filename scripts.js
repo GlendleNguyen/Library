@@ -51,3 +51,7 @@ function openForm() {
     document.getElementById("bookForm").style.display = "none";
   }
 
+function addBook() {
+    document.getElementById("newForm").reset();
+    closeForm();
+}

@@ -22,19 +22,23 @@
         <button class="button" id="add">+</button>
 
         <div class="form-popup" id="bookForm">
-            <form class="form-container">
+            <form class="form-container" id="newForm">
                 <h2>Add Book</h2>
 
+                <button type="button" class="btnClose" onclick="closeForm()">x</button>
+
                 <label for="bookTitle"><b>Book Title:</b></label>
-                <input type="text" placeholder="" name="title" required>
+                <input type="text" placeholder="" name="title" data-input required>
  
                 <label for="bookAuthor"><b>Author:</b></label>
-                <input type="text" placeholder="" name="author" required>
+                <input type="text" placeholder="" name="author" data-input required>
 
                 <label for="bookPages"><b>Pages:</b></label>
-                <input type="text" placeholder="" name="author" required>
+                <input type="text" placeholder="" name="author" data-input required>
 
-                <button type="button" class="btnAdd" onclick="closeForm()">Close</button>
+                <div>
+                    <button type="button" class="btnAdd" onclick="addBook()">Add</button>
+                </div>
             </form>
         </div>
 
