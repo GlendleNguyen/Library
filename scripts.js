@@ -1,10 +1,10 @@
 let myLibrary = [];
 
 class Book {
-    constructor(title, author, pageN, read) {
+    constructor(title, author, pages, read) {
         this.title = title;
         this.author = author;
-        this.pageN = pageN;
+        this.pages = pages;
         this.read = read;
     }
 }
