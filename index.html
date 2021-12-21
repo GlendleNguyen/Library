@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My Virtual Library</title>
+    <title>Virtual Library</title>
 
     <!--Include CSS-->
     <link rel="stylesheet" href="styles.css">
@@ -13,12 +13,30 @@
     <div id="container">
 
         <div id="title">
-            <h1>My Virtual Library</h1>
+            <h1>Virtual Library</h1>
         </div>
 
-        <div id="cards"></div>
+        <div id="cards">
+        </div>
 
         <button class="button" id="add">+</button>
+
+        <div class="form-popup" id="bookForm">
+            <form class="form-container">
+                <h2>Add Book</h2>
+
+                <label for="bookTitle"><b>Book Title:</b></label>
+                <input type="text" placeholder="" name="title" required>
+ 
+                <label for="bookAuthor"><b>Author:</b></label>
+                <input type="text" placeholder="" name="author" required>
+
+                <label for="bookPages"><b>Pages:</b></label>
+                <input type="text" placeholder="" name="author" required>
+
+                <button type="button" class="btnAdd" onclick="closeForm()">Close</button>
+            </form>
+        </div>
 
     </div>
 

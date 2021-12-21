@@ -1,5 +1,8 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
     background-color: #A5B2B5;
 }
 
@@ -30,4 +33,25 @@ h1 {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-  }
+}
+
+.form-popup {
+    display: none; 
+    box-sizing: border-box; 
+    border: 3px solid white; 
+    position: fixed; 
+    left: 50%;
+    bottom: 50%; 
+    transform: translate(-50%, -50%);
+    max-width: 250px;
+    text-align: center;
+    background-color: #0F4C81;
+}
+
+.form-container {
+    background-color: white;
+}
+
+input {
+    margin: 10px;
+}
