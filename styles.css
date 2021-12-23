@@ -17,54 +17,8 @@ h1 {
     background-color: #0F4C81;
 }
 
-#add {
-    position: absolute;
-    bottom: 10%; 
-    right: 10%; 
-    background-color: white;
-    font-size: 4rem; 
-    border: none; 
-    border-radius: 50%; 
-    height: 70px;
-    width: 70px; 
-}
-
-.button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-
-.form-popup {
-    display: none; 
-    box-sizing: border-box; 
-    border: 3px solid white; 
-    position: fixed; 
-    left: 50%;
-    bottom: 50%; 
-    transform: translate(-50%, -50%);
-    max-width: 250px;
-    text-align: center;
-    background-color: #0F4C81;
-}
-
-.form-container {
-    background-color: white;
-}
-
-input {
-    margin: 10px;
-
-}
-
-.btnClose {
-    position: absolute;
-    top: 0%;
-    right: 0%; 
-}
-
-.btnAdd {
+#buttonHeader {
     margin-top: 10px;
-    padding: 5px; 
-    margin-bottom: 10px;
+    display: flex; 
+    justify-content: center;
 }
