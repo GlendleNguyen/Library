@@ -1,11 +1,5 @@
-/**
- * Variables
- */
 let myLibrary = [];
 
-/**
- * Book class
- */
 class Book {
     constructor(title, author, pages, read) {
         this.title = title;
@@ -25,4 +19,9 @@ function pushBook(author, title, pages, read) {
     myLibrary.push(newBook);
 }
 
-
+function clearModalFields() {
+    document.getElementById('bookName').value = "";
+    document.getElementById('bookAuthor').value = "";
+    document.getElementById('bookPages').value = "";
+    document.getElementById('bookRead').checked = false;
+}
