@@ -1,3 +1,5 @@
+const books = document.getElementById('cards');
+
 let myLibrary = [];
 
 class Book {
@@ -25,3 +27,21 @@ function clearModalFields() {
     document.getElementById('bookPages').value = "";
     document.getElementById('bookRead').checked = false;
 }
+
+function addFromModal() {
+    let title = document.getElementById('bookName');
+    let author = document.getElementById('bookAuthor');
+    let pages = document.getElementById('bookPages');
+    let read = document.getElementById('bookRead');
+
+    pushBook(title, author, pages, read);
+    displayBooks();
+    clearModalFields();
+}
+
+function displayBooks() {
+    
+
+}
+
+displayBooks(); 
