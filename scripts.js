@@ -16,7 +16,7 @@ Book.prototype.info = function () {
     return (text);
 }
 
-function pushBook(author, title, pages, read) {
+function pushBook(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 }
