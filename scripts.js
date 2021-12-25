@@ -53,7 +53,7 @@ function displayBooks() {
         bookTitle.innerText = `Title: ${myLibrary[i].title}`; 
         bookAuthor.innerText = `Author: ${myLibrary[i].author}`;
         bookPages.innerText = `Pages: ${myLibrary[i].pages}`;
-        deleteButton.innerText = "Remove Book" 
+        deleteButton.innerText = "Remove" 
 
         let readStatus = myLibrary[i].read;
 
@@ -67,6 +67,23 @@ function displayBooks() {
             readButton.style.backgroundColor = "lightcoral";
             readButton.innerText = "Not Read";
         };
+
+        deleteButton.addEventListener('click', () => {
+            bookshelf.removeChild(bookCard);
+            myLibrary.splice(bookCard.value, 1);
+        })
+
+        readButton.addEventListener('click', () => {
+            if (readStatus) {
+                readStatus = false;
+                readButton.innerText = "Not Read";
+                readButton.style.backgroundColor = "lightcoral";
+            } else {
+                readStatus = true;
+                readButton.innerText = "Read";
+                readButton.style.backgroundColor = "lightgreen";
+            }
+        })
 
         bookCard.append(bookTitle, bookAuthor, bookPages, readButton, deleteButton);
         bookshelf.appendChild(bookCard);
