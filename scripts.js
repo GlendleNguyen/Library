@@ -1,4 +1,4 @@
-const books = document.getElementById('cards');
+const bookshelf = document.getElementById('cards');
 
 let myLibrary = [];
 
@@ -29,10 +29,10 @@ function clearModalFields() {
 }
 
 function addFromModal() {
-    let title = document.getElementById('bookName');
-    let author = document.getElementById('bookAuthor');
-    let pages = document.getElementById('bookPages');
-    let read = document.getElementById('bookRead');
+    let title = document.getElementById('bookName').value;
+    let author = document.getElementById('bookAuthor').value;
+    let pages = document.getElementById('bookPages').value;
+    let read = document.getElementById('bookRead').value;
 
     pushBook(title, author, pages, read);
     displayBooks();
@@ -40,8 +40,35 @@ function addFromModal() {
 }
 
 function displayBooks() {
-    
+    bookshelf.innerHTML = '';
 
+    for (let i = 0; i < myLibrary.length; i++) {
+        let bookCard = document.createElement('div');
+        let bookTitle = document.createElement('div');
+        let bookAuthor = document.createElement('div');
+        let bookPages = document.createElement('div');
+        let readButton = document.createElement('button');
+        let deleteButton = document.createElement('button');
+
+        bookTitle.innerText = `Title: ${myLibrary[i].title}`; 
+        bookAuthor.innerText = `Author: ${myLibrary[i].author}`;
+        bookPages.innerText = `Pages: ${myLibrary[i].pages}`;
+        deleteButton.innerText = "Remove Book" 
+
+        let readStatus = myLibrary[i].read;
+
+        bookCard.classList.add("book-card");
+        bookTitle.classList.add("card-title");
+
+        if (readStatus == true) {
+            readButton.style.backgroundColor = "lightgreen";
+            readButton.innerText = "Read";
+        } else {
+            readButton.style.backgroundColor = "lightcoral";
+            readButton.innerText = "Not Read";
+        };
+
+        bookCard.append(bookTitle, bookAuthor, bookPages, readButton, deleteButton);
+        bookshelf.appendChild(bookCard);
+    }
 }
-
-displayBooks(); 
