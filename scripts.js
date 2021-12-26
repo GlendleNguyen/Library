@@ -84,7 +84,7 @@ function displayBooks() {
             readButton.innerText = "Not Read";
         }
 
-        // TODO
+        // Toggle read status on card and in array
         readButton.addEventListener('click', () => {
             let readStatus = myLibrary[bookCard.id].read;
             if (readStatus) {
