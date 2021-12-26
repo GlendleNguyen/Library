@@ -36,7 +36,10 @@ function addFromModal() {
     let title = document.getElementById('bookName').value;
     let author = document.getElementById('bookAuthor').value;
     let pages = document.getElementById('bookPages').value;
-    let read = document.getElementById('bookRead').value;
+    let read = false;
+    if (document.getElementById('bookRead').checked === true) {
+        read = true;
+    }
 
     pushBook(title, author, pages, read);
     displayBooks();
@@ -57,16 +60,14 @@ function displayBooks() {
         let readButton = document.createElement('button');
         let deleteButton = document.createElement('button');
 
-        bookTitle.innerText = `Title: ${myLibrary[i].title}`; 
+        bookTitle.innerText = `Title: ${myLibrary[i].title}`;
         bookAuthor.innerText = `Author: ${myLibrary[i].author}`;
         bookPages.innerText = `Pages: ${myLibrary[i].pages}`;
-        deleteButton.innerText = "Remove" 
+        deleteButton.innerText = "Remove"
 
         bookCard.classList.add("book-card");
         bookCard.setAttribute("id", i);
         bookTitle.classList.add("card-title");
-
-        console.log(`Title: ${myLibrary[i].title}, cardAttributeID: ${bookCard.id}`);
 
         // Delete button removes bookcard and corresponding book in array by index value
         deleteButton.addEventListener('click', () => {
@@ -74,25 +75,28 @@ function displayBooks() {
             myLibrary.splice(bookCard.id, 1);
         })
 
-        // TODO
-        let readStatus = myLibrary[i].read;
-        if (readStatus == true) {
+        // Style read button according to array value
+        if (myLibrary[i].read) {
             readButton.style.backgroundColor = "lightgreen";
-            readButton.innerText = "Read";
+            readButton.innerText = "Completed";
         } else {
             readButton.style.backgroundColor = "lightcoral";
             readButton.innerText = "Not Read";
-        };
+        }
 
         // TODO
         readButton.addEventListener('click', () => {
+            let readStatus = myLibrary[bookCard.id].read;
             if (readStatus) {
                 readStatus = false;
                 readButton.innerText = "Not Read";
+                myLibrary[bookCard.id].read = false;
                 readButton.style.backgroundColor = "lightcoral";
+
             } else {
                 readStatus = true;
-                readButton.innerText = "Read";
+                readButton.innerText = "Completed";
+                myLibrary[bookCard.id].read = true;
                 readButton.style.backgroundColor = "lightgreen";
             }
         })
