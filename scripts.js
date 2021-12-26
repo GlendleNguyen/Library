@@ -21,6 +21,10 @@ function pushBook(title, author, pages, read) {
     myLibrary.push(newBook);
 }
 
+function deleteBook(arrayIndex) {
+    myLibrary.splice(arrayIndex, 1);
+}
+
 function clearModalFields() {
     document.getElementById('bookName').value = "";
     document.getElementById('bookAuthor').value = "";
@@ -40,9 +44,12 @@ function addFromModal() {
 }
 
 function displayBooks() {
+    // clear existing shelf
     bookshelf.innerHTML = '';
 
+    // iterate through library, create and display book cards
     for (let i = 0; i < myLibrary.length; i++) {
+
         let bookCard = document.createElement('div');
         let bookTitle = document.createElement('div');
         let bookAuthor = document.createElement('div');
@@ -55,11 +62,20 @@ function displayBooks() {
         bookPages.innerText = `Pages: ${myLibrary[i].pages}`;
         deleteButton.innerText = "Remove" 
 
-        let readStatus = myLibrary[i].read;
-
         bookCard.classList.add("book-card");
+        bookCard.setAttribute("id", i);
         bookTitle.classList.add("card-title");
 
+        console.log(`Title: ${myLibrary[i].title}, cardAttributeID: ${bookCard.id}`);
+
+        // Delete button removes bookcard and corresponding book in array by index value
+        deleteButton.addEventListener('click', () => {
+            bookshelf.removeChild(bookCard);
+            myLibrary.splice(bookCard.id, 1);
+        })
+
+        // TODO
+        let readStatus = myLibrary[i].read;
         if (readStatus == true) {
             readButton.style.backgroundColor = "lightgreen";
             readButton.innerText = "Read";
@@ -68,11 +84,7 @@ function displayBooks() {
             readButton.innerText = "Not Read";
         };
 
-        deleteButton.addEventListener('click', () => {
-            bookshelf.removeChild(bookCard);
-            myLibrary.splice(bookCard.value, 1);
-        })
-
+        // TODO
         readButton.addEventListener('click', () => {
             if (readStatus) {
                 readStatus = false;
